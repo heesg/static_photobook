@@ -1,0 +1,21 @@
+{% extends "photo/base.html" %}
+
+{% block bb %}
+    <h1>{{photo.title}}</h1>
+    <h3>{{photo.content}}</h3>
+    <img src="{{photo.image.url}}" alt="{{photo.image}}"></img>
+    <p>{{photo.created_at}}</p>
+    <p>{{photo.updated_at}}</p>
+   
+    <hr>   
+    <form action="/photos/{{photo.id}}/comment/create/" method="post">
+            {% csrf_token %}
+            <input type="text" name="content"/>
+            <input type="submit" name=""/>
+        </form>
+     {% for comment in photo.comment_set.all %}
+             <h4>{{comment.content}}</h4>
+        {% endfor %}
+    <a href="{% url 'photos:update' photo.id %}">수정하기</a>
+    <a href="{% url 'photos:delete' photo.id %}">삭제하기</a>
+{% endblock %}`

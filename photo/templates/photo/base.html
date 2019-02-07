@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'test.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/a.jpg' %}">
+
+</head>
+<body>
+    <ul>
+        <!--<li><a href="/photos/">홈으로가기</a></li>-->
+        <li><a href="{% url 'photos:list' %}">홈으로가기</a></li>
+        <li><a href="{% url 'photos:create' %}">글작성하기</a></li>
+    </ul>
+    <h3>여기는 파랑색이 되야겠지?</h3>
+    {% block bb %}
+    {% endblock %}
+</body>
+</html>
